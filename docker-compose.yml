@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    image: supmit-api
+    container_name: supmit-api
+    volumes:
+      - ./student_age.json:/data/student_age.json
+    ports:
+      - "5002:5000"  # Expose le port 5002 sur l'hôte et 5000 dans le conteneur
+    networks:
+      - supmit-network
+
+  website:
+    image: php:apache
+    container_name: supmit-website
+    environment:
+      - USERNAME=toto
+      - PASSWORD=python
+    volumes:
+      - ./website:/var/www/html
+    ports:
+      - "8081:80"
+    depends_on:
+      - api
+    networks:
+      - supmit-network
+
+networks:
+  supmit-network:
+    driver: bridge

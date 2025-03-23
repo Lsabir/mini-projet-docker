@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  registry:
+    image: registry:2
+    container_name: supmit-registry
+    ports:
+      - "5001:5000"  # Expose le port 5000 du registre sur le port 5001 de l'hôte
+    volumes:
+      - registry_data:/var/lib/registry  # Volume pour stocker les données du registre
+      - ./auth:/auth  # Volume pour l'authentification (facultatif)
+    environment:
+      - REGISTRY_AUTH=htpasswd  # Active l'authentification (facultatif)
+      - REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm  # Nom du domaine d'authentification
+      - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd  # Chemin du fichier htpasswd
+    networks:
+      - supmit-network
+
+  registry-ui:
+    image: joxit/docker-registry-ui:latest
+    container_name: supmit-registry-ui
+    ports:
+      - "8081:80"  # Expose le port 80 de l'interface web sur le port 8081 de l'hôte
+    environment:
+      - REGISTRY_TITLE=SUPMIT Docker Registry  # Titre de l'interface web
+      - REGISTRY_URL=http://registry:5000  # URL du registre Docker
+    depends_on:
+      - registry  # Démarre le registre avant l'interface web
+    networks:
+      - supmit-network
+
+volumes:
+  registry_data:  # Volume pour stocker les données du registre
+
+networks:
+  supmit-network:  # Réseau Docker pour connecter les services
+    driver: bridge
