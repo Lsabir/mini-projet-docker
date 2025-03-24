@@ -34,7 +34,20 @@ Image 3 (3.jpeg)<img
 Historique des builds du projet mini-projet-docker.
 Plusieurs builds effectués avec différentes durées.
 Informations sur les performances système.
+
+
+
+
+
+
+
+
+
+
 Image 4 (affichage.jpeg)
+![affichage](https://github.com/user-attachments/assets/18b60ec8-1f87-47e7-b87a-8e1febe83e2b)
+
+
 Liste d'étudiants avec leurs âges :
 Sabir, 22 ans
 Abdessamad, 23 ans
