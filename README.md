@@ -19,7 +19,8 @@ Image 2 (2.jpeg)
 Affiche une erreur liée à un port déjà utilisé (0.0.0.0:5000).
 Liste des conteneurs et services démarrés.
 Information sur l'utilisation des ressources système.
-Image 3 (3.jpeg)
+Image 3 (3.jpeg)<img width="1470" alt="1" src="https://github.com/user-attachments/assets/6fffb80c-6270-4153-a29f-f783128bb460" />
+
 Historique des builds du projet mini-projet-docker.
 Plusieurs builds effectués avec différentes durées.
 Informations sur les performances système.
