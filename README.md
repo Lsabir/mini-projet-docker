@@ -52,3 +52,75 @@ Liste d'étudiants avec leurs âges :
 Sabir, 22 ans
 Abdessamad, 23 ans
 Nabil, 21 ans
+
+
+
+
+
+PARTIE 2
+
+
+
+1. **Cloner ton projet depuis GitHub**
+2. **Construire une image Docker**
+3. **Tester cette image en lançant un conteneur temporaire**
+
+---
+
+##  **Détail de chaque section du pipeline**
+
+### ### `pipeline { ... }`
+C’est le bloc principal qui contient tout le pipeline.
+
+---
+
+###  `agent any`
+Indique que le pipeline peut s’exécuter sur n’importe quel agent Jenkins disponible (machine/esclave).
+
+---
+
+###  `environment { ... }`
+Définit des **variables d’environnement** que tu réutilises plus tard :
+- `DOCKER_IMAGE = "itsaliiiiiiii/simple_api"` → Nom de ton image Docker
+- `VERSION = "latest"` → Tag de version de l’image (ici, "latest")
+
+---
+
+##  **Les stages (étapes)**
+
+---
+
+###  `stage('Cloner le projet')`
+- Utilise la commande `git` pour **cloner ton dépôt GitHub** :  
+   `https://github.com/itsaliiiiiiii/MPDocker.git`
+
+---
+
+###  `stage('Construire image Docker')`
+- Exécute la commande Docker :  
+   `docker build -t $DOCKER_IMAGE:$VERSION .`
+- Cela construit une image Docker avec le tag `itsaliiiiiiii/simple_api:latest`
+
+---
+
+###  `stage('Tester image Docker')`
+- **Lance un conteneur Docker temporaire** depuis l’image que tu viens de construire :
+  ```bash
+  docker run -d --name test-container -p 8080:80 $DOCKER_IMAGE:$VERSION
+  ```
+- **Attend 5 secondes** pour laisser le conteneur démarrer.
+- **Teste l'API** avec `curl -I http://localhost:8080` → vérifie si le serveur répond.
+- **Stoppe et supprime le conteneur** une fois le test terminé :
+  ```bash
+  docker stop test-container && docker rm test-container
+
+
+# Partie 3
+
+![Texte alternatif](src/aws1.jpg)
+![Texte alternatif](src/aws2.jpg)
+![Texte alternatif](src/aws3.jpg)
+![Texte alternatif](src/aws4.jpg)
+
+
+
