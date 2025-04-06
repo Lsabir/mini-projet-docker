@@ -116,11 +116,12 @@ Définit des **variables d’environnement** que tu réutilises plus tard :
 
 
 # Partie 3
+![aws1](https://github.com/user-attachments/assets/ab74f421-a5c6-4726-b7d5-12533b74dc1b)
 
-![Texte alternatif](src/aws1.jpg)
-![Texte alternatif](src/aws2.jpg)
-![Texte alternatif](src/aws3.jpg)
-![Texte alternatif](src/aws4.jpg)
+![Screenshot 2025-04-06 at 23 44 20](https://github.com/user-attachments/assets/1fcf6748-7f99-4b2c-9337-6a216db18bde)
 
 
+![Screenshot 2025-04-06 at 23 44 25](https://github.com/user-attachments/assets/91ef4cae-8f86-4440-aea3-d4bb6660dbfb)
 
+
+![Screenshot 2025-04-06 at 23 44 33](https://github.com/user-attachments/assets/8d57f2f5-f9df-4f1d-9286-f219a8172dec)
